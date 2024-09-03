@@ -28,7 +28,7 @@ namespace Data_FishingBee.Models
         DbSet<Product> Products { get; set; }
         DbSet<ProductDetail> ProductDetail { get; set; }
         DbSet<Category> entities { get; set; }
-        DbSet<BillDetail> Bills { get; set; }
+        DbSet<Bill> Bills { get; set; }
         DbSet<BillDetail> BillDetails { get; set; }
         DbSet<DailyRevenue> DailyRevenues { get; set; }
         DbSet<WeekRevenue> WeekRevenues { get; set; }
