@@ -9,6 +9,14 @@ namespace Data_FishingBee.Models
     public class WeekRevenue
     {
         public Guid Id { get; set; }
+
+        public DateTime? WeekStartDate { get; set; }
+        public DateTime? WeekEndDate { get; set; }
+        public int? TotalQuantity { get; set; }
+        public decimal? TotalOriginAmount { get; set; }
+        public decimal? TotalDiscountAmount { get; set; }
+        public decimal? TotalFinalAmount { get; set; }
+
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
