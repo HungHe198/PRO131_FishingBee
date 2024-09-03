@@ -15,8 +15,9 @@ namespace Data_FishingBee.Models
         public decimal? OriginAmount { get; set; }
         public decimal? DiscountAmount { get; set; }
         public decimal? FinalAmount { get; set; }
-        public Guid ProductId { get; set; }
-        public ICollection<Product>? Products { get; set; }
+        public Product? Product { get; set; }
+        public WeekRevenue? WeekRevenue { get; set; }
+        public MonthRevenue? MonthRevenue { get; set; }
 
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
