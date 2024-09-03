@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data_FishingBee.Models
 {
-    public class Product
+    public class Admin
     {
         public Guid Id { get; set; }
-
-        public Guid DailyRevenuesId { get; set; }
-        public ICollection<DailyRevenue>? DailyRevenues { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
