@@ -9,6 +9,8 @@ namespace Data_FishingBee.Models
     public class Cart
     {
         public Guid Id { get; set; }
+        public Guid CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

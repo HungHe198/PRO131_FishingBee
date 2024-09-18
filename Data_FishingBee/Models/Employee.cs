@@ -9,6 +9,14 @@ namespace Data_FishingBee.Models
     public class Employee
     {
         public Guid Id { get; set; }
+        public string StaffCode { get; set; }
+        public string Fullname { get; set; }
+        public string Position { get; set; }
+        public decimal Salary { get; set; }
+        public DateOnly HireDate { get; set; }
+        public string? IDCardNumber { get; set; }
+        public Guid UserId { get; set; }
+        public User? User { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
