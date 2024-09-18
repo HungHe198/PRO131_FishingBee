@@ -9,6 +9,8 @@ namespace Data_FishingBee.Models
     public class User
     {
         public Guid Id { get; set; }
+        public ICollection<Customer> Customers { get; set; }
+
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
