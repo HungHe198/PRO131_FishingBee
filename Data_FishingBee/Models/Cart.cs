@@ -11,6 +11,7 @@ namespace Data_FishingBee.Models
         public Guid Id { get; set; }
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
+        public ICollection<Cart_Product>? Cart_Products { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

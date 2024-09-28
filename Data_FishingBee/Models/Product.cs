@@ -12,6 +12,7 @@ namespace Data_FishingBee.Models
 
         public Guid DailyRevenuesId { get; set; }
         public ICollection<DailyRevenue>? DailyRevenues { get; set; }
+        public ICollection<Cart_Product>? Cart_Products { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

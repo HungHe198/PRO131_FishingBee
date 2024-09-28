@@ -4,6 +4,7 @@ using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data_FishingBee.Migrations
 {
     [DbContext(typeof(FishingBeeDbContext))]
-    partial class FishingBeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241019052955_lan17")]
+    partial class lan17
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -800,7 +802,12 @@ namespace Data_FishingBee.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Roles");
                 });
@@ -942,7 +949,7 @@ namespace Data_FishingBee.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RoleId")
+                    b.Property<Guid?>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("RoleLevel")
@@ -1166,13 +1173,18 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Data_FishingBee.Models.Role", b =>
+                {
+                    b.HasOne("Data_FishingBee.Models.Role", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("RoleId");
+                });
+
             modelBuilder.Entity("Data_FishingBee.Models.User", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("RoleId");
 
                     b.Navigation("Role");
                 });
@@ -1210,7 +1222,7 @@ namespace Data_FishingBee.Migrations
 
             modelBuilder.Entity("Data_FishingBee.Models.Role", b =>
                 {
-                    b.Navigation("Users");
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.User", b =>

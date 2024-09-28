@@ -4,6 +4,7 @@ using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data_FishingBee.Migrations
 {
     [DbContext(typeof(FishingBeeDbContext))]
-    partial class FishingBeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241019052501_lan16")]
+    partial class lan16
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -942,9 +944,6 @@ namespace Data_FishingBee.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("RoleLevel")
                         .HasColumnType("int");
 
@@ -957,8 +956,6 @@ namespace Data_FishingBee.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -1166,17 +1163,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Data_FishingBee.Models.User", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-                });
-
             modelBuilder.Entity("Data_FishingBee.Models.WeekRevenue", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.MonthRevenue", "MonthRevenue")
@@ -1206,11 +1192,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("Cart_Products");
 
                     b.Navigation("DailyRevenues");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.Role", b =>
-                {
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.User", b =>
