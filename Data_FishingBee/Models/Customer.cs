@@ -15,8 +15,9 @@ namespace Data_FishingBee.Models
         public DateTime DoB { get; set; }
         public int LoyaltyPoints { get; set; }
         public Guid UserId { get; set; }
-        public User User { get; set; }
-        public Cart Cart { get; set; }
+        public User? User { get; set; }
+        public Cart? Cart { get; set; }
+
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
