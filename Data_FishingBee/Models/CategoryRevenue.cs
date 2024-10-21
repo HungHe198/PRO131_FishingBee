@@ -9,6 +9,8 @@ namespace Data_FishingBee.Models
     public class CategoryRevenue
     {
         public Guid Id { get; set; }
+        public Guid? CategoryId { get; set; }
+        public Category? Category { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

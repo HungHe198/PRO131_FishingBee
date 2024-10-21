@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Data_FishingBee.Configurations
 {
-    public class MonthRevenueConfig : IEntityTypeConfiguration<MonthRevenue>
+    public class Product_CategoryConfig : IEntityTypeConfiguration<Product_Category>
     {
-        public void Configure(EntityTypeBuilder<MonthRevenue> builder)
+        public void Configure(EntityTypeBuilder<Product_Category> builder)
         {
-           builder.HasKey(e => e.Id);
+           builder.HasKey(x => x.Id);
         }
     }
 }

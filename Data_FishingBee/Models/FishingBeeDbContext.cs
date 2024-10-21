@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data_FishingBee.Configurations;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
@@ -29,12 +30,14 @@ namespace Data_FishingBee.Models
         public DbSet<Cart_Product> Cart_Products { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetail { get; set; }
+        public DbSet<Product_Category> Product_Categories { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillDetail> BillDetails { get; set; }
         public DbSet<DailyRevenue> DailyRevenues { get; set; }
         public DbSet<WeekRevenue> WeekRevenues { get; set; }
         public DbSet<MonthRevenue> MonthRevenues { get; set; }
+       
         public DbSet<ProductRevenue> ProductRevenues { get; set; }
         public DbSet<CategoryRevenue> CategoryRevenues { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
