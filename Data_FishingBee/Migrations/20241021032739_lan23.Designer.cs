@@ -4,6 +4,7 @@ using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data_FishingBee.Migrations
 {
     [DbContext(typeof(FishingBeeDbContext))]
-    partial class FishingBeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241021032739_lan23")]
+    partial class lan23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,9 +275,6 @@ namespace Data_FishingBee.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
@@ -298,10 +297,6 @@ namespace Data_FishingBee.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId")
-                        .IsUnique()
-                        .HasFilter("[CategoryId] IS NOT NULL");
 
                     b.ToTable("CategoryRevenues");
                 });
@@ -760,13 +755,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
 
                     b.ToTable("ProductRevenues");
                 });
@@ -1245,15 +1234,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Data_FishingBee.Models.CategoryRevenue", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Category", "Category")
-                        .WithOne("CategoryRevenue")
-                        .HasForeignKey("Data_FishingBee.Models.CategoryRevenue", "CategoryId");
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("Data_FishingBee.Models.Customer", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.User", "User")
@@ -1332,17 +1312,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Data_FishingBee.Models.ProductRevenue", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Product", "Product")
-                        .WithOne("ProductRevenue")
-                        .HasForeignKey("Data_FishingBee.Models.ProductRevenue", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Data_FishingBee.Models.PromotionDetail", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.Promotion", "Promotion")
@@ -1386,8 +1355,6 @@ namespace Data_FishingBee.Migrations
 
             modelBuilder.Entity("Data_FishingBee.Models.Category", b =>
                 {
-                    b.Navigation("CategoryRevenue");
-
                     b.Navigation("Product_Categories");
                 });
 
@@ -1417,8 +1384,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("Inventory");
 
                     b.Navigation("ProductDetail");
-
-                    b.Navigation("ProductRevenue");
 
                     b.Navigation("Product_Categories");
                 });

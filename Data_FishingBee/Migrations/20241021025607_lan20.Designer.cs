@@ -4,6 +4,7 @@ using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data_FishingBee.Migrations
 {
     [DbContext(typeof(FishingBeeDbContext))]
-    partial class FishingBeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241021025607_lan20")]
+    partial class lan20
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,9 +91,6 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("DeletedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -101,14 +100,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PromotionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.HasIndex("PromotionId");
 
                     b.ToTable("Bills");
                 });
@@ -117,9 +109,6 @@ namespace Data_FishingBee.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BillId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("CreatedBy")
@@ -143,14 +132,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("BillId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("BillDetails");
                 });
@@ -273,9 +255,6 @@ namespace Data_FishingBee.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
@@ -298,10 +277,6 @@ namespace Data_FishingBee.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId")
-                        .IsUnique()
-                        .HasFilter("[CategoryId] IS NOT NULL");
 
                     b.ToTable("CategoryRevenues");
                 });
@@ -572,19 +547,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("QuantityStock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReOderLevel")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
 
                     b.ToTable("Inventories");
                 });
@@ -722,13 +685,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
 
                     b.ToTable("ProductDetail");
                 });
@@ -760,13 +717,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
 
                     b.ToTable("ProductRevenues");
                 });
@@ -830,13 +781,7 @@ namespace Data_FishingBee.Migrations
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PromotionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PromotionId")
-                        .IsUnique();
 
                     b.ToTable("PromotionDetails");
                 });
@@ -1106,6 +1051,9 @@ namespace Data_FishingBee.Migrations
                     b.Property<Guid?>("MonthRevenueId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("MonthRevenueId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal?>("TotalDiscountAmount")
                         .HasColumnType("decimal(18,2)");
 
@@ -1130,6 +1078,8 @@ namespace Data_FishingBee.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MonthRevenueId");
+
+                    b.HasIndex("MonthRevenueId1");
 
                     b.ToTable("WeekRevenues");
                 });
@@ -1177,44 +1127,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Data_FishingBee.Models.Bill", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Employee", "Employee")
-                        .WithMany("Bills")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data_FishingBee.Models.Promotion", "Promotion")
-                        .WithMany("Bills")
-                        .HasForeignKey("PromotionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("Promotion");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.BillDetail", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Bill", "Bill")
-                        .WithMany("BillDetails")
-                        .HasForeignKey("BillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data_FishingBee.Models.Product", "Product")
-                        .WithMany("BillDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bill");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Data_FishingBee.Models.Cart", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.Customer", "Customer")
@@ -1243,15 +1155,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("Cart");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.CategoryRevenue", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Category", "Category")
-                        .WithOne("CategoryRevenue")
-                        .HasForeignKey("Data_FishingBee.Models.CategoryRevenue", "CategoryId");
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Customer", b =>
@@ -1291,17 +1194,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Data_FishingBee.Models.Inventory", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Product", "Product")
-                        .WithOne("Inventory")
-                        .HasForeignKey("Data_FishingBee.Models.Inventory", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Data_FishingBee.Models.Product_Category", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.Category", "Category")
@@ -1321,39 +1213,6 @@ namespace Data_FishingBee.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Data_FishingBee.Models.ProductDetail", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Product", "Product")
-                        .WithOne("ProductDetail")
-                        .HasForeignKey("Data_FishingBee.Models.ProductDetail", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.ProductRevenue", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Product", "Product")
-                        .WithOne("ProductRevenue")
-                        .HasForeignKey("Data_FishingBee.Models.ProductRevenue", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.PromotionDetail", b =>
-                {
-                    b.HasOne("Data_FishingBee.Models.Promotion", "Promotion")
-                        .WithOne("PromotionDetail")
-                        .HasForeignKey("Data_FishingBee.Models.PromotionDetail", "PromotionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Promotion");
-                });
-
             modelBuilder.Entity("Data_FishingBee.Models.User", b =>
                 {
                     b.HasOne("Data_FishingBee.Models.Role", "Role")
@@ -1367,16 +1226,15 @@ namespace Data_FishingBee.Migrations
 
             modelBuilder.Entity("Data_FishingBee.Models.WeekRevenue", b =>
                 {
-                    b.HasOne("Data_FishingBee.Models.MonthRevenue", "MonthRevenue")
+                    b.HasOne("Data_FishingBee.Models.MonthRevenue", null)
                         .WithMany("WeekRevenue")
                         .HasForeignKey("MonthRevenueId");
 
-                    b.Navigation("MonthRevenue");
-                });
+                    b.HasOne("Data_FishingBee.Models.Product_Category", "MonthRevenue")
+                        .WithMany()
+                        .HasForeignKey("MonthRevenueId1");
 
-            modelBuilder.Entity("Data_FishingBee.Models.Bill", b =>
-                {
-                    b.Navigation("BillDetails");
+                    b.Navigation("MonthRevenue");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Cart", b =>
@@ -1386,19 +1244,12 @@ namespace Data_FishingBee.Migrations
 
             modelBuilder.Entity("Data_FishingBee.Models.Category", b =>
                 {
-                    b.Navigation("CategoryRevenue");
-
                     b.Navigation("Product_Categories");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Customer", b =>
                 {
                     b.Navigation("Cart");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.Employee", b =>
-                {
-                    b.Navigation("Bills");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.MonthRevenue", b =>
@@ -1408,26 +1259,11 @@ namespace Data_FishingBee.Migrations
 
             modelBuilder.Entity("Data_FishingBee.Models.Product", b =>
                 {
-                    b.Navigation("BillDetails");
-
                     b.Navigation("Cart_Products");
 
                     b.Navigation("DailyRevenues");
 
-                    b.Navigation("Inventory");
-
-                    b.Navigation("ProductDetail");
-
-                    b.Navigation("ProductRevenue");
-
                     b.Navigation("Product_Categories");
-                });
-
-            modelBuilder.Entity("Data_FishingBee.Models.Promotion", b =>
-                {
-                    b.Navigation("Bills");
-
-                    b.Navigation("PromotionDetail");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Role", b =>

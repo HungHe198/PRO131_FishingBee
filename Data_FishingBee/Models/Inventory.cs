@@ -9,6 +9,10 @@ namespace Data_FishingBee.Models
     public class Inventory
     {
         public Guid Id { get; set; }
+        public int QuantityStock { get; set; }
+        public int ReOderLevel { get; set; } // 1 - 5
+        public Guid ProductId { get; set; }
+        public Product? Product { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

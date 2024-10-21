@@ -17,6 +17,7 @@ namespace Data_FishingBee.Models
         public string? IDCardNumber { get; set; }
         public Guid UserId { get; set; }
         public User? User { get; set; }
+        public ICollection<Bill>? Bills { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
