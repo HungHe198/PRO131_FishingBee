@@ -9,10 +9,10 @@ namespace Data_FishingBee.Models
     public class CustomerSupport
     {
         public Guid Id { get; set; }
-        public Guid CustomerId { get; set; }
-        public Customer? Customer { get; set; }
-        public Guid EmployeeId { get; set; }
-        public Employee? Employee { get; set; }
+        //public Guid CustomerId { get; set; }
+        //public Customer? Customer { get; set; }
+        //public Guid EmployeeId { get; set; }
+        //public Employee? Employee { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }
