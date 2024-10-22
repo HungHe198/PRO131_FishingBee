@@ -9,6 +9,10 @@ namespace Data_FishingBee.Models
     public class ProductRevenue
     {
         public Guid Id { get; set; }
+        public decimal TotalRevenue { get; set; }
+        public float PercentageRevenueProduct { get; set; }
+        public int TotalQuantityProduct { get; set; }
+        public decimal TotalProfitProduct { get; set; }
         public Guid ProductId { get; set; }
         public Product? Product { get; set; }
         public Guid? CreatedBy { get; set; }

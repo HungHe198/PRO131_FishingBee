@@ -16,6 +16,8 @@ namespace Data_FishingBee.Models
         public int LoyaltyPoints { get; set; }
         public Guid UserId { get; set; }
         public User? User { get; set; }
+        
+        //public ICollection<Bill>? Bill { get; set; }
         public Cart? Cart { get; set; }
         //public ICollection<CustomerSupport>? CustomerSupports { get; set; }
         public CustomerActivityLog? CustomerActivityLog { get; set; }

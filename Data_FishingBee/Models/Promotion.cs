@@ -9,6 +9,9 @@ namespace Data_FishingBee.Models
     public class Promotion
     {
         public Guid Id { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string PromotionType { get; set; }
         public ICollection<Bill>? Bills { get; set; }
         public PromotionDetail? PromotionDetail { get; set; }
         public Guid? CreatedBy { get; set; }

@@ -9,8 +9,12 @@ namespace Data_FishingBee.Models
     public class Bill
     {
         public Guid Id { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string CustomerName { get; set; }
         public ICollection<BillDetail>? BillDetails { get; set; }
         public TransactionHistory? TransactionHistory { get; set; }
+        //public Guid CustomerId { get; set; }
+        //public Customer? Customer { get; set; }
         public Guid EmployeeId { get; set; }
         public Employee? Employee { get; set; }
         public Guid PromotionId { get; set; }

@@ -9,6 +9,15 @@ namespace Data_FishingBee.Models
     public class ProductDetail
     {
         public Guid Id { get; set; }
+        public float Length { get; set; }
+        public float Weight { get; set; }
+        public string Material { get; set; }
+        public string Color { get; set; }
+        public string? Manufacturer { get; set; }
+        public string? Warranty { get; set; }
+        public string? Additional_info { get; set; }
+        public string? Description { get; set; }
+
         public Guid ProductId { get; set; }
         public Product? Product { get; set; }
         public Guid? CreatedBy { get; set; }
