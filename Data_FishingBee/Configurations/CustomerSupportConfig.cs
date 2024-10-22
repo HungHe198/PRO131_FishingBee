@@ -14,14 +14,14 @@ namespace Data_FishingBee.Configurations
         public void Configure(EntityTypeBuilder<CustomerSupport> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasOne(x => x.Customer)
-                .WithMany(c => c.CustomerSupports)
-                .HasForeignKey(x => x.CustomerId)
-                .OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(x => x.Employee)
-                .WithMany(c => c.CustomerSupports)
-                .HasForeignKey(x => x.EmployeeId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder.HasOne(x => x.Customer)
+            //    .WithMany(c => c.CustomerSupports)
+            //    .HasForeignKey(x => x.CustomerId)
+            //    .OnDelete(DeleteBehavior.Restrict);
+            //builder.HasOne(x => x.Employee)
+            //    .WithMany(c => c.CustomerSupports)
+            //    .HasForeignKey(x => x.EmployeeId)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
