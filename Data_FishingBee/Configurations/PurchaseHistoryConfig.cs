@@ -1,5 +1,6 @@
 ﻿using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Data_FishingBee.Configurations
 {
-    public class UserActivityLogConfig : IEntityTypeConfiguration<UserActivityLog>
+    public class PurchaseHistoryConfig : IEntityTypeConfiguration<PurchaseHistory>
     {
-        public void Configure(EntityTypeBuilder<UserActivityLog> builder)
+        public void Configure(EntityTypeBuilder<PurchaseHistory> builder)
         {
             builder.HasKey(x => x.Id);
         }
