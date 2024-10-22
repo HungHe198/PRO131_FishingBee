@@ -4,6 +4,7 @@ using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data_FishingBee.Migrations
 {
     [DbContext(typeof(FishingBeeDbContext))]
-    partial class FishingBeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241022010108_lan25")]
+    partial class lan25
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,7 +70,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Admins", (string)null);
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Bill", b =>
@@ -110,7 +112,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("PromotionId");
 
-                    b.ToTable("Bills", (string)null);
+                    b.ToTable("Bills");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.BillDetail", b =>
@@ -152,7 +154,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("BillDetails", (string)null);
+                    b.ToTable("BillDetails");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Cart", b =>
@@ -190,7 +192,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("CustomerId")
                         .IsUnique();
 
-                    b.ToTable("Carts", (string)null);
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Cart_Product", b =>
@@ -232,7 +234,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Cart_Products", (string)null);
+                    b.ToTable("Cart_Products");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Category", b =>
@@ -264,7 +266,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.CategoryRevenue", b =>
@@ -303,7 +305,7 @@ namespace Data_FishingBee.Migrations
                         .IsUnique()
                         .HasFilter("[CategoryId] IS NOT NULL");
 
-                    b.ToTable("CategoryRevenues", (string)null);
+                    b.ToTable("CategoryRevenues");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Customer", b =>
@@ -357,7 +359,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.CustomerActivityLog", b =>
@@ -395,7 +397,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("CustomerId")
                         .IsUnique();
 
-                    b.ToTable("UserActivityLogs", (string)null);
+                    b.ToTable("UserActivityLogs");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.CustomerSupport", b =>
@@ -427,7 +429,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CustomerSupports", (string)null);
+                    b.ToTable("CustomerSupports");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.DailyRevenue", b =>
@@ -490,7 +492,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("WeekRevenueId");
 
-                    b.ToTable("DailyRevenues", (string)null);
+                    b.ToTable("DailyRevenues");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Employee", b =>
@@ -548,7 +550,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Inventory", b =>
@@ -592,7 +594,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("Inventories", (string)null);
+                    b.ToTable("Inventories");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.MonthRevenue", b =>
@@ -642,7 +644,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MonthRevenues", (string)null);
+                    b.ToTable("MonthRevenues");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Product", b =>
@@ -677,7 +679,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Product_Category", b =>
@@ -698,7 +700,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Product_Categories", (string)null);
+                    b.ToTable("Product_Categories");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.ProductDetail", b =>
@@ -736,7 +738,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductDetail", (string)null);
+                    b.ToTable("ProductDetail");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.ProductRevenue", b =>
@@ -774,7 +776,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductRevenues", (string)null);
+                    b.ToTable("ProductRevenues");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Promotion", b =>
@@ -806,7 +808,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Promotions", (string)null);
+                    b.ToTable("Promotions");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.PromotionDetail", b =>
@@ -844,7 +846,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("PromotionId")
                         .IsUnique();
 
-                    b.ToTable("PromotionDetails", (string)null);
+                    b.ToTable("PromotionDetails");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.PurchaseHistory", b =>
@@ -908,7 +910,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("PurchaseHistory", (string)null);
+                    b.ToTable("PurchaseHistory");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Role", b =>
@@ -950,7 +952,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Supplier", b =>
@@ -1016,7 +1018,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suppliers", (string)null);
+                    b.ToTable("Suppliers");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.TransactionHistory", b =>
@@ -1081,7 +1083,7 @@ namespace Data_FishingBee.Migrations
                         .IsUnique()
                         .HasFilter("[PurchaseHistoryId] IS NOT NULL");
 
-                    b.ToTable("TransactionHistories", (string)null);
+                    b.ToTable("TransactionHistories");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.User", b =>
@@ -1141,7 +1143,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.WeekRevenue", b =>
@@ -1202,7 +1204,7 @@ namespace Data_FishingBee.Migrations
 
                     b.HasIndex("MonthRevenueId");
 
-                    b.ToTable("WeekRevenues", (string)null);
+                    b.ToTable("WeekRevenues");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.WishList", b =>
@@ -1249,7 +1251,7 @@ namespace Data_FishingBee.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("WishLists", (string)null);
+                    b.ToTable("WishLists");
                 });
 
             modelBuilder.Entity("Data_FishingBee.Models.Admin", b =>

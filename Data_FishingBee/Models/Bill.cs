@@ -10,6 +10,7 @@ namespace Data_FishingBee.Models
     {
         public Guid Id { get; set; }
         public ICollection<BillDetail>? BillDetails { get; set; }
+        public TransactionHistory? TransactionHistory { get; set; }
         public Guid EmployeeId { get; set; }
         public Employee? Employee { get; set; }
         public Guid PromotionId { get; set; }

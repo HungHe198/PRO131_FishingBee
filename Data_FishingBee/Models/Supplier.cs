@@ -16,8 +16,10 @@ namespace Data_FishingBee.Models
         public string Country { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+
         public string? Website { get; set; }
         public string? Notes { get; set; }
+        public ICollection<PurchaseHistory>? PurchaseHistories { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

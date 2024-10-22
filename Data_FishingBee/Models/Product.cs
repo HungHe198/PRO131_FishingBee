@@ -15,8 +15,10 @@ namespace Data_FishingBee.Models
         public ICollection<Cart_Product>? Cart_Products { get; set; }
         public ICollection<Product_Category>? Product_Categories { get; set; }
         public ICollection<BillDetail>? BillDetails { get; set; }
+        public ICollection<PurchaseHistory>? PurchaseHistories { get; set; }
         public ProductDetail? ProductDetail { get; set; }
         public ProductRevenue? ProductRevenue { get; set; }
+        public WishList? WishList { get; set; }
         public Inventory? Inventory{ get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }

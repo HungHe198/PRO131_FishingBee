@@ -45,9 +45,10 @@ namespace Data_FishingBee.Models
         public DbSet<PromotionDetail> PromotionDetails { get; set; }
         public DbSet<WishList> WishLists { get; set; }
         public DbSet<TransactionHistory> TransactionHistories { get; set; }
-        public DbSet<Coupon> Coupons { get; set; }
-        public DbSet<UserActivityLog> UserActivityLogs { get; set; }
+        //public DbSet<Coupon> Coupons { get; set; }
+        public DbSet<CustomerActivityLog> UserActivityLogs { get; set; }
         public DbSet<CustomerSupport> CustomerSupports { get; set; }
+        public DbSet<PurchaseHistory> PurchaseHistory { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
