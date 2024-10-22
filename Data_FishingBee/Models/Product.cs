@@ -9,7 +9,10 @@ namespace Data_FishingBee.Models
     public class Product
     {
         public Guid Id { get; set; }
-
+        public string Name { get; set; }
+        public string CategoryName { get; set; }
+        public decimal Price { get; set; }
+        public int Stock { get; set; }
         public Guid DailyRevenuesId { get; set; }
         public ICollection<DailyRevenue>? DailyRevenues { get; set; }
         public ICollection<Cart_Product>? Cart_Products { get; set; }

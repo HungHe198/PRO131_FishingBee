@@ -9,6 +9,13 @@ namespace Data_FishingBee.Models
     public class PromotionDetail
     {
         public Guid Id { get; set; }
+        public string PromotionType { get; set; } // lấy từ bảng promotion
+        public int PromotionValue { get; set; }
+        public decimal MinPrice { get; set; }
+        public decimal MaxDiscountValue { get; set; }
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
+        public string? Description { get; set; }
         public Guid PromotionId { get; set; }
         public Promotion? Promotion { get; set; }
         public Guid? CreatedBy { get; set; }
