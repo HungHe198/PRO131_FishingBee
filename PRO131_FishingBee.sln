@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_FishingBee", "Data_FishingBee\Data_FishingBee.csproj", "{790F1312-18D8-483C-828D-60F009BC81FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data_FishingBee", "Data_FishingBee\Data_FishingBee.csproj", "{790F1312-18D8-483C-828D-60F009BC81FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingBee_CounterSales", "FishingBee_CounterSales\FishingBee_CounterSales.csproj", "{C5E4144D-71A7-4673-8CC6-95E87A64A06F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishingBee_CounterSales", "FishingBee_CounterSales\FishingBee_CounterSales.csproj", "{C5E4144D-71A7-4673-8CC6-95E87A64A06F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingBee_WebStore", "FishingBee_WebStore\FishingBee_WebStore.csproj", "{666F473E-CBCA-4B61-92DD-9853D5320623}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishingBee_WebStore", "FishingBee_WebStore\FishingBee_WebStore.csproj", "{666F473E-CBCA-4B61-92DD-9853D5320623}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_FishingBee", "API_FishingBee\API_FishingBee.csproj", "{5943F26B-7951-4D86-8F4F-D7D3E3CD684C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{666F473E-CBCA-4B61-92DD-9853D5320623}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666F473E-CBCA-4B61-92DD-9853D5320623}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666F473E-CBCA-4B61-92DD-9853D5320623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5943F26B-7951-4D86-8F4F-D7D3E3CD684C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5943F26B-7951-4D86-8F4F-D7D3E3CD684C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5943F26B-7951-4D86-8F4F-D7D3E3CD684C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5943F26B-7951-4D86-8F4F-D7D3E3CD684C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

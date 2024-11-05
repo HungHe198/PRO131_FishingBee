@@ -8,11 +8,11 @@ namespace Data_FishingBee.Repositories
 {
     public interface IAllRepositories<T> where T : class
     {
-        public ICollection<T> GetAll();
-        public T GetById(dynamic id);
-        public bool CreateObj(T Obj);
-        public bool UpdateObj(T Obj);
-        public bool DeletedObj(dynamic id);
+        public Task<IEnumerable<T>> GetAll();
+        public Task<T> GetById(Guid id);
+        public Task<T> Create(T Obj);
+        public Task Update(Guid id, T Obj);
+        public Task Delete(Guid id);
         
     }
 }
