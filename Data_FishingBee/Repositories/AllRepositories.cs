@@ -20,57 +20,48 @@ namespace Data_FishingBee.Repositories
             _dbSet = dbSet;
         }
 
-        public bool CreateObj(H Obj)
+        public async Task<H> Create(H Obj)
         {
             try
             {
                 _dbSet.Add(Obj);
-                _db.SaveChanges();
-                return true;
+                await _db.SaveChangesAsync();
+                return Obj;
             }
-            catch (Exception Ex){ 
-           return false;
+            catch
+            {
+                return null;
             }
         }
-        public bool UpdateObj(H Obj)
+
+        public async Task Delete(Guid id)
         {
-            try
+            var delObj = await GetById(id);
+            if (delObj != null)
+            {
+                _dbSet.Remove(delObj);
+                await _db.SaveChangesAsync();
+            }
+        }
+
+        public async Task<IEnumerable<H>> GetAll()
+        {
+            return await _dbSet.ToListAsync();
+        }
+
+        public async Task<H> GetById(Guid id)
+        {
+            return await _dbSet.FindAsync(id);
+        }
+
+        public async Task Update(Guid id, H Obj)
+        {
+            var updateObj = await GetById(id);
+            if (updateObj != null)
             {
                 _dbSet.Update(Obj);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception Ex)
-            {
-                return false;
+                await _db.SaveChangesAsync();
             }
         }
-        public bool DeletedObj(dynamic id)
-        {
-            try
-            {
-                var objDel = _db.Find(id);
-                _dbSet.Remove(objDel);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception Ex)
-            {
-                return false;
-            }
-        }
-
-        public ICollection<H> GetAll()
-        {
-           return _dbSet.ToList();
-
-        }
-
-        public H GetById(dynamic id)
-        {
-            return _dbSet.Find(id);
-        }
-
-        
     }
 }
