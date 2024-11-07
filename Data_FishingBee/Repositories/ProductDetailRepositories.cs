@@ -3,28 +3,25 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data_FishingBee.Repositories
 {
-    public class AllRepositories<H> : IAllRepositories<H> where H : class
+    public class ProductDetailRepositories : IAllRepositories<ProductDetail>
     {
         private readonly FishingBeeDbContext _db;
-        private readonly DbSet<H> _dbSet;
 
-        public AllRepositories(FishingBeeDbContext db, DbSet<H> dbSet)
+        public ProductDetailRepositories(FishingBeeDbContext db)
         {
             _db = db;
-            _dbSet = dbSet;
         }
 
-        public async Task<H> Create(H Obj)
+        public async Task<ProductDetail> Create(ProductDetail Obj)
         {
             try
             {
-                _dbSet.Add(Obj);
+                _db.ProductDetail.Add(Obj);
                 await _db.SaveChangesAsync();
                 return Obj;
             }
@@ -39,22 +36,22 @@ namespace Data_FishingBee.Repositories
             var delObj = await GetById(id);
             if (delObj != null)
             {
-                _dbSet.Remove(delObj);
+                _db.ProductDetail.Remove(delObj);
                 await _db.SaveChangesAsync();
             }
         }
 
-        public async Task<IEnumerable<H>> GetAll()
+        public async Task<IEnumerable<ProductDetail>> GetAll()
         {
-            return await _dbSet.ToListAsync();
+            return await _db.ProductDetail.ToListAsync();
         }
 
-        public async Task<H> GetById(Guid id)
+        public async Task<ProductDetail> GetById(Guid id)
         {
-            return await _dbSet.FindAsync(id);
+            return await _db.ProductDetail.FindAsync(id);
         }
 
-        public async Task Update(Guid id, H Obj)
+        public async Task Update(Guid id, ProductDetail Obj)
         {
             var updateObj = await GetById(id);
             if (updateObj != null)
