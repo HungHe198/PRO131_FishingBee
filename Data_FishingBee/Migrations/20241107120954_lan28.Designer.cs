@@ -4,6 +4,7 @@ using Data_FishingBee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data_FishingBee.Migrations
 {
     [DbContext(typeof(FishingBeeDbContext))]
-    partial class FishingBeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241107120954_lan28")]
+    partial class lan28
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,11 +235,16 @@ namespace Data_FishingBee.Migrations
                     b.Property<Guid>("ProductDetailId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CartId");
 
                     b.HasIndex("ProductDetailId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Cart_Products");
                 });
@@ -1399,10 +1406,14 @@ namespace Data_FishingBee.Migrations
                         .IsRequired();
 
                     b.HasOne("Data_FishingBee.Models.ProductDetail", "ProductDetail")
-                        .WithMany("Cart_Products")
+                        .WithMany()
                         .HasForeignKey("ProductDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Data_FishingBee.Models.Product", null)
+                        .WithMany("Cart_Products")
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Cart");
 
@@ -1647,6 +1658,8 @@ namespace Data_FishingBee.Migrations
 
             modelBuilder.Entity("Data_FishingBee.Models.Product", b =>
                 {
+                    b.Navigation("Cart_Products");
+
                     b.Navigation("ProductDetail");
 
                     b.Navigation("Product_Categories");
@@ -1655,8 +1668,6 @@ namespace Data_FishingBee.Migrations
             modelBuilder.Entity("Data_FishingBee.Models.ProductDetail", b =>
                 {
                     b.Navigation("BillDetails");
-
-                    b.Navigation("Cart_Products");
 
                     b.Navigation("DailyRevenues");
 

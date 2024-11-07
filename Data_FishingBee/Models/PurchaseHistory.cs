@@ -16,8 +16,8 @@ namespace Data_FishingBee.Models
         public string AdminName { get; set; }
         public Guid AdminId { get; set; }
         public Admin? Admin { get; set; }
-        public Guid ProductId { get; set; }
-        public Product? Product { get; set; }
+        public Guid ProductDetailId { get; set; }
+        public ProductDetail? ProductDetail { get; set; }
         public Guid SupplierId { get; set; }
         public Supplier? Supplier { get; set; }
         public TransactionHistory? TransactionHistory { get; set; }

@@ -11,8 +11,8 @@ namespace Data_FishingBee.Models
         public Guid Id { get; set; }
         public Guid BillId { get; set; }
         public Bill? Bill { get; set; }
-        public Guid ProductId { get; set; }
-        public Product? Product { get; set; }
+        public Guid ProductDetailId { get; set; }
+        public ProductDetail? ProductDetail { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
         public bool? IsDeleted { get; set; }

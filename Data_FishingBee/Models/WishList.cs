@@ -12,8 +12,8 @@ namespace Data_FishingBee.Models
         public int QuantitySaled { get; set; }
         public decimal Profit { get; set; }
         public float ProfitPercentage { get; set; }
-        public Guid ProductId { get; set; }
-        public Product? Product { get; set; }
+        public Guid ProductDetailId { get; set; }
+        public ProductDetail? ProductDetail { get; set; }
 
         public Guid? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
